@@ -27,16 +27,6 @@ public class Requerimiento {
         this.descripción = descripción;
     }
 
-    public boolean asignarEmpleado(Empleado empleado){
-        try{
-            empleado.restarHorasDisponibles(tiempoEstimado);
-            this.empleadoAsignado = empleado;
-            return true;
-        }catch (EmpleadoNoDisponibleException e){
-            return false;
-        }
-    }
-
     public Long getId() {
         return id;
     }

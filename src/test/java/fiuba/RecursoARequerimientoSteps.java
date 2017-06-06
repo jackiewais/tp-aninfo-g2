@@ -10,18 +10,21 @@ import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-public class AsignarEmpleadoAReqTest {
+public class RecursoARequerimientoSteps {
 
     private Empleado empleado;
     private Requerimiento requerimiento;
+    private FachadaRecursoARequerimiento fachada;
     private boolean resultadoExitoso;
+    private String codEmpleadoDefecto = "codigoX";
     private String ubicacionDefecto = "Central";
     private String solicitanteDefecto = "Juan";
     private String descripcionDefecto = "Requermiento Ejemplo";
 
     @Dado("^que el empleado se encuentra en estado \"(.*?)\" con \"(.*?)\" horas disponibles$")
     public void que_el_empleado_se_encuentra_en_estado_con_horas_disponibles(EstadoEmpleadoEnum estado, Double horasDisponibles) throws Throwable {
-        empleado = new Empleado(horasDisponibles,ubicacionDefecto);
+        fachada = new FachadaRecursoARequerimiento();
+        empleado = new Empleado(codEmpleadoDefecto,horasDisponibles,ubicacionDefecto);
         empleado.setEstado(estado);
     }
 
@@ -29,7 +32,7 @@ public class AsignarEmpleadoAReqTest {
     @Cuando("^cuando asigno requerimiento de \"(.*?)\" horas$")
     public void cuando_asigno_requeriminto_de_horas(Double horasRequerimiento) throws Throwable {
         requerimiento = new Requerimiento(horasRequerimiento,solicitanteDefecto,descripcionDefecto);
-        resultadoExitoso = requerimiento.asignarEmpleado(empleado);
+        resultadoExitoso = fachada.asignarEmpleadoARequerimiento(empleado,requerimiento);
     }
 
 

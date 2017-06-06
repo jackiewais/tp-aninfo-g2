@@ -4,12 +4,13 @@ import fiuba.enums.EstadoEmpleadoEnum;
 
 public class Empleado {
 
+    private String codEmpleado;
     private Double horasDisponibles;
     private EstadoEmpleadoEnum estado;
     private String ubicacion;
 
-
-    public Empleado (Double horasDisponibles, String ubicacion){
+    public Empleado (String codEmpleado, Double horasDisponibles, String ubicacion){
+        this.codEmpleado = codEmpleado;
         this.horasDisponibles = horasDisponibles;
         this.ubicacion = ubicacion;
         this.estado = EstadoEmpleadoEnum.ACTIVO;
@@ -49,5 +50,9 @@ public class Empleado {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public String getCodEmpleado() {
+        return codEmpleado;
     }
 }

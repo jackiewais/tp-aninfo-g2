@@ -12,19 +12,19 @@ public class Requerimiento {
     private Double tiempoEstimado; //En horas
     private String solicitante;
     private UrgenciaEnum urgencia;
-    private String descripción;
+    private String descripcion;
     private Empleado empleadoAsignado;
 
     private static Long numeracionId = 1L; //Usado para asignar Ids
 
-    public Requerimiento(Double tiempoEstimado, String solicitante, String descripción){
+    public Requerimiento(Double tiempoEstimado, String solicitante, String descripcion){
         this.id = ++numeracionId;
         this.porcentaje = 0;
         this.fechaCreacion = new Date();
         this.tiempoEstimado = tiempoEstimado;
         this.solicitante = solicitante;
         this.urgencia = UrgenciaEnum.URG_MEDIA; //por defecto todos se crean con urgencia media
-        this.descripción = descripción;
+        this.descripcion = descripcion;
     }
 
     public Long getId() {
@@ -76,11 +76,11 @@ public class Requerimiento {
     }
 
     public String getDescripción() {
-        return descripción;
+        return descripcion;
     }
 
     public void setDescripción(String descripción) {
-        this.descripción = descripción;
+        this.descripcion = descripción;
     }
 
     public Empleado getEmpleadoAsignado() {
